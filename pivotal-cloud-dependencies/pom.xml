@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.pivotal.cloud</groupId>
+    <artifactId>pivotal-cloud-dependencies</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>pivotal-cloud-dependencies</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <nexus-server.version>192.168.0.1</nexus-server.version>
+        <nexus-port.version>9999</nexus-port.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!--Nexus 添加制品上传配置:mvn clean deploy -DskipTests-->
+    <distributionManagement>
+        <repository>
+            <id>middleware-release</id>
+            <url>http://${nexus-server.version}:${nexus-port.version}/nexus/repository/middleware-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>middleware-snapshot</id>
+            <url>http://${nexus-server.version}:${nexus-port.version}/nexus/repository/middleware-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <!--Nexus 拉取制品 :mvn install-->
+    <repositories>
+        <repository>
+            <id>middleware-release</id>
+            <url>http://${nexus-server.version}:${nexus-port.version}/nexus/repository/middleware-release/</url>
+        </repository>
+        <repository>
+            <id>middleware-snapshot</id>
+            <url>http://${nexus-server.version}:${nexus-port.version}/nexus/repository/middleware-snapshot/</url>
+        </repository>
+    </repositories>
+
+</project>
