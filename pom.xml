@@ -47,6 +47,34 @@
     </issueManagement>
 
     <modules>
+        <!---->
+        <module>pivotal-cloud-cache</module>
+        <module>pivotal-cloud-common</module>
+        <module>pivotal-cloud-component</module>
+        <module>pivotal-cloud-container</module>
+        <module>pivotal-cloud-core</module>
+        <module>pivotal-cloud-datajpa</module>
+        <module>pivotal-cloud-datasource</module>
         <module>pivotal-cloud-dependencies</module>
+        <module>pivotal-cloud-elasticsearch</module>
+        <module>pivotal-cloud-gateway</module>
+        <module>pivotal-cloud-job</module>
+        <module>pivotal-cloud-message</module>
+        <module>pivotal-cloud-mongodb</module>
+        <module>pivotal-cloud-monitor</module>
+        <module>pivotal-cloud-mybatis</module>
+        <module>pivotal-cloud-mysql</module>
+        <module>pivotal-cloud-passport</module>
+        <module>pivotal-cloud-persistence</module>
+        <module>pivotal-cloud-queue</module>
+        <module>pivotal-cloud-redis</module>
+        <module>pivotal-cloud-security</module>
+        <module>pivotal-cloud-shiro</module>
+        <module>pivotal-cloud-solr</module>
+        <module>pivotal-cloud-storage</module>
+        <module>pivotal-cloud-swagger</module>
+        <module>pivotal-cloud-tomcat</module>
+        <module>pivotal-cloud-undertow</module>
+        <module>pivotal-cloud-webflux</module>
     </modules>
 </project>
