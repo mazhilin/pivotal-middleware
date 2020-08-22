@@ -13,34 +13,56 @@
     <groupId>com.pivotal.cloud</groupId>
     <artifactId>pivotal-cloud-dependencies</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
     <packaging>pom</packaging>
-    <name>pivotal-cloud-dependencies</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <nexus-server.version>192.168.0.1</nexus-server.version>
-        <nexus-port.version>9999</nexus-port.version>
+        <nexus-server.version>39.106.167.73</nexus-server.version>
+        <nexus-port.version>8889</nexus-port.version>
+        <main.basedir>${basedir}/../..</main.basedir>
+        <spring-boot-parent.version>2.2.9.RELEASE</spring-boot-parent.version>
+        <spring-framework-parent.version>5.2.8.RELEASE</spring-framework-parent.version>
+        <start-class>org.rainbow.spring.boot.Application</start-class>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring-framework-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring-boot-parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot-parent.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
